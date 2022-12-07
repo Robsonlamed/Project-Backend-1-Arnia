@@ -137,7 +137,7 @@ MODEL:
 -> Resenha: Texto de no máximo 200 caracteres (String[]) - Obrigatório
 arr[0] === Resenha v1
 arr[1] === Resenha v1.1
-arr[2] === Resenha v2.2
+arr[2] === Resenha v2.2 
 
 -> Data de criação: Formato de Data a sua escolha (new Date) - Obrigatório
 
@@ -199,3 +199,4 @@ Nem todo livro terá uma Resenha.
 
 - Na funcionalidade de Listar, deverá ser possível fazer uma consulta com Query Params
   por autor
+ 
