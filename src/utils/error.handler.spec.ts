@@ -1,4 +1,4 @@
-import { promiseError, invalidIdError } from "./error.handler";
+import { promiseError, invalidIdError, invalidBodyError } from "./error.handler";
 import { jest, describe, it, expect } from "@jest/globals";
 
 describe("error.handler", () => {
@@ -40,4 +40,5 @@ describe("error.handler", () => {
       });
     });
   });
+
 });

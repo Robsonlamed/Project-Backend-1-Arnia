@@ -69,29 +69,6 @@ describe("BooksService", () => {
     });
   });
 
-  // describe("getByAuthor", () => {
-  //   it("should call Repository.getByAuthor", async () => {
-  //     const book = jest.spyOn(fakeBooksRepository, "getByAuthor")
-  //     await bookService.getByAuthor(fakeAuthor);
-  //     expect(book).toHaveBeenCalled();
-  //   });
-  //   it("should return a book by this author", async () => {
-  //     const book = await bookService.getByAuthor(fakeAuthor)
-  //     expect(book).toEqual(fakeBooksData[0]);
-  //   });
-  //   it("should return an promiseError", async () => {
-  //     jest.spyOn(fakeBooksRepository, "getByAuthor").mockRejectedValueOnce("Error")
-  //     const error = await bookService.getByAuthor(fakeAuthor);
-  //     expect(error).toEqual({
-  //       promiseError: {
-  //         message: "unable to request the Database",
-  //         error: "Error",
-  //       },
-  //     });
-  //   });
-
-  // });
-
   describe("create", () => {
     it("should call Repository.create", async () => {
       const spy = jest.spyOn(fakeBooksRepository, "create")
@@ -167,31 +144,4 @@ describe("BooksService", () => {
       expect(error).toEqual(invalidIdError("invalidId"));
     });
   });
-
-  // describe("updateLanguage", () => {
-  //   it("should call Repository.updateLanguage", async () => {
-  //     const spy = jest.spyOn(fakeBooksRepository, "updateLanguage")
-  //     await bookService.updateLanguage(['inglês'], fakeId, updatedBook)
-  //     expect(spy).toHaveBeenCalled();
-  //   });
-  //   it("should update book language", async () => {
-  //     const book = await bookService.updateLanguage(['inglês'], fakeId, updatedBook)
-  //     expect(book).toEqual(updatedBook);
-  //   });
-  //   it("should return an promiseError", async () => {
-  //     jest.spyOn(fakeBooksRepository, "updateLanguage").mockRejectedValueOnce("Error")
-  //     const error = await bookService.updateLanguage(['inglês'], fakeId, updatedBook)
-  //     expect(error).toEqual({
-  //       promiseError: {
-  //         message: "unable to request the Database",
-  //         error: "Error",
-  //       },
-  //     });
-  //   });
-
-  //   it("should return a invalidIdError", async () => {
-  //     const error = await bookService.update("invalidId", updatedBook);
-  //     expect(error).toEqual(invalidIdError("invalidId"));
-  //   });
-  // });
 });

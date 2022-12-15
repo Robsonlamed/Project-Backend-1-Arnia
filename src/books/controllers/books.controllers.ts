@@ -1,6 +1,8 @@
 import { StatusCode } from "../../utils/status.code";
 import { Request, Response } from "express";
 import { BooksService } from "../service/books.service";
+import { invalidBodyCreateBook, invalidBodyUpdateLanguageAndReviewIdBook, invalidBodyUpdateStatusBook } from "../utils/books.body.validator";
+import { invalidBodyError } from "../../utils/error.handler";
 
 export class BooksController { 
   constructor(private readonly booksService: BooksService) {}
@@ -42,6 +44,11 @@ export class BooksController {
 
   async create(req: Request, res: Response) {
 
+    if (invalidBodyCreateBook(req)) {
+      res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
+      return; 
+    }
+
     const { body } = req
 
     const result = await this.booksService.create(body);
@@ -54,9 +61,11 @@ export class BooksController {
   }
 
   async update(req: Request, res: Response) {
-    // req.body -> Body/JSON
-    // req.params -> URL Params
-    // req.query  -> Query Params
+   
+    if (invalidBodyUpdateLanguageAndReviewIdBook(req)) {
+      res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
+      return;
+    }
 
     const { id } = req.params;
     const { body } = req;
@@ -75,11 +84,18 @@ export class BooksController {
   }
 
   async updateStatus(req: Request, res: Response) {
+
+    if (invalidBodyUpdateStatusBook(req)) {
+      res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
+      return;
+    }
+    
     const { id } = req.params;
     const { body } = req;
 
     const result = await this.booksService.updateStatus(id, body)
-    
+    console.log("🚀 ~ file: books.controllers.ts:82 ~ BooksController ~ updateStatus ~ result", result)
+
     if ("promiseError" in result) {
       return res.status(StatusCode.INTERNAL_SERVER_ERROR).json(result);
     }

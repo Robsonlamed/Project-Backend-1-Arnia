@@ -21,18 +21,21 @@ describe("BooksRepository", () => {
       const books = await booksRepository.getAll(fakeAuthor1);
       expect(books).toEqual([]);
     });
-  });
+  }); 
   describe("getById", () => {
     it("should return a book", async () => {
       const book = await booksRepository.getById(fakeId);
       expect(book).toEqual(fakeBooksData[0]);
     });
     it("should return an empty object", async () => {
-      jest.spyOn(fakeBooksModel, "findById").mockResolvedValueOnce(null);
-
-      const book = await booksRepository.getById(fakeId);
-      expect(book).toEqual({});
-    });
+      jest.spyOn(fakeBooksModel, "findById").mockImplementationOnce(
+          () => ({
+          populate: jest.fn().mockImplementationOnce(() => null)
+      }) as any
+      )
+      const book = await booksRepository.getById(fakeId)
+      expect(book).toEqual({})
+  })
   });
   describe("create", () => {
     it("should create a book", async () => {

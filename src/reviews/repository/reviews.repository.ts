@@ -1,3 +1,4 @@
+import { kMaxLength } from "buffer";
 import { Model } from "mongoose";
 import { Review } from "../models/reviews.model";
 
@@ -26,13 +27,20 @@ export class ReviewsRepository {
 
   async update(id: string, review: Review): Promise<Review> {
     const { textReview, updateDate } = review;
+    const oldReview = await this.reviewsModel.findById(id);
+
+    if (oldReview) {
+      for (const review of oldReview.textReview) {
+        if (textReview[0] === review) {
+          throw new Error("Já existe esta review");
+        }
+      }
+    }
     const updatedReview = await this.reviewsModel.findByIdAndUpdate(
       id,
       {
-        $set: {
-          textReview,
-        },
         $push: {
+          textReview,
           updateDate: new Date(),
         },
       },

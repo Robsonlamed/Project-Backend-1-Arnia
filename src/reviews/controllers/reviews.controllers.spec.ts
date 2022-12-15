@@ -3,7 +3,7 @@ import { invalidIdError, promiseError } from "../../utils/error.handler";
 import { jest, it, describe, expect } from "@jest/globals";
 import { ReviewsController } from "./reviews.controllers";
 import { fakeReviewService } from "../__mocks__/fake.reviews.service";
-import { fakeId, fakeReviewsData } from "../__mocks__/fake.review.data";
+import { fakeId, fakeReviewsData, fakeReviewsInvalidBody } from "../__mocks__/fake.review.data";
 import { mockRequest, mockResponse } from "../__mocks__/fake.reviews.routes";
 
 const reviewsController = new ReviewsController(fakeReviewService);
@@ -68,6 +68,11 @@ describe("ReviewsController", () => {
       await reviewsController.create(req, res);
       expect(res.json).toHaveBeenCalledWith(fakeReviewsData[1]);
     });
+    it("should return status code 400", async () => {
+      req.body = fakeReviewsInvalidBody;
+      await reviewsController.create(req, res);
+      expect(res.status).toHaveBeenCalledWith(StatusCode.BAD_REQUEST);
+    });
     it("should return status code 201", async () => {
       req.body = fakeReviewsData[1];
       await reviewsController.create(req, res);
@@ -90,6 +95,11 @@ describe("ReviewsController", () => {
       req.body = fakeReviewsData[1];
       await reviewsController.update(req, res);
       expect(res.json).toHaveBeenCalledWith(fakeReviewsData[1]);
+    });
+    it("should return status code 400", async () => {
+      req.body = fakeReviewsInvalidBody;
+      await reviewsController.create(req, res);
+      expect(res.status).toHaveBeenCalledWith(StatusCode.BAD_REQUEST);
     });
     it("should return status code 200", async () => {
       req.params.id = fakeId;

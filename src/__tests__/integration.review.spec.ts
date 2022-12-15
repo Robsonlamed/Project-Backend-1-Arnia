@@ -11,43 +11,43 @@ app.use("/reviews", reviewsRoutes)
 app.use("/books", booksRoutes)
 
 const testReviewsCreate = {
-  title: "Teste integração",
-  textReview: ["testando create"],
-  score: 4,
+      title: (function () {
+        return Math.random().toString(36).substring(7);
+      })(),
+      textReview: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      ],
+      updateDate: [new Date()],
+      score: 3,
 };
 
 const testReviewsUpdate = {
-  title: "Teste integração",
   textReview: ["testando update"],
-  score: 4,
+  updateDate: [new Date()],
 };
 
 const testBooksCreate = {
-  title: "Teste integração books",
-  releaseDate: "1997",
-  language: ['português', 'inglês'],
+  title: function () {
+    return Math.random().toString(36).substring(7);
+  }(),
+  releaseDate: new Date(),
+  language: ['portugues', 'ingles'],
   status: true,
-  author: "authorTeste",
+  author: function () {
+    return Math.random().toString(36).substring(7);
+  }(),
 };
 
 const testBooksUpdate = {
-  title: "Teste integração books",
-  releaseDate: "1997",
   language: ['japones'],
-  status: true,
-  author: "J. K. Rowling",
 };
 
 const testBooksUpdateStatus = {
-  title: "Teste integração books",
-  releaseDate: "1997",
-  language: ['português', 'inglês'],
-  status: false,
-  author: "J. K. Rowling",
+  status: true,
 };
 
 beforeAll(() => {
-  connectMongo();
+  connectMongo(true);
 });
 
 afterAll(async() => {
@@ -108,7 +108,7 @@ describe("Books", () => {
     expect(response.status).toBe(200);
   });
 
-  it("should update status books", async () => {
+  it("should update status books no content", async () => {
     const getAll = await supertest(app).get("/books");
     const updateReview = getAll.body[getAll.body.length - 1];
     const response = await supertest(app).put(`/books/${updateReview._id}/status`).send(testBooksUpdateStatus);

@@ -28,9 +28,11 @@ const booksSchema = new Schema({
       type: String,
       maxlength: 24,
       required: true,
-      index: true,
+      index: true, 
       unique: true,
     },
+  }, {
+    timestamps: {createdAt: true, updatedAt: false}
   });
   
   export type Books = InferSchemaType<typeof booksSchema>;

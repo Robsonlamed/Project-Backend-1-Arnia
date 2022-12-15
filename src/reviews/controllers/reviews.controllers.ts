@@ -1,6 +1,8 @@
 import { StatusCode } from "../../utils/status.code";
 import { Request, Response } from "express";
 import { ReviewsService } from "../service/reviews.service";
+import { invalidBodyCreateReview, invalidBodyUpdateReview } from "../utils/review.body.validator";
+import { invalidBodyError } from "../../utils/error.handler";
 
 export class ReviewsController { 
   constructor(private readonly reviewsService: ReviewsService) {}
@@ -34,9 +36,14 @@ export class ReviewsController {
 
   async create(req: Request, res: Response) {
 
+    if (invalidBodyCreateReview(req)) {
+      res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
+      return;
+    }
+
     const { body } = req
 
-    const result = await this.reviewsService.create(body);
+    const result = await this.reviewsService.create(body, ""); 
     if ("promiseError" in result) {
       // console.log(result)
       return res.status(StatusCode.INTERNAL_SERVER_ERROR).json(result);
@@ -46,6 +53,12 @@ export class ReviewsController {
   }
 
   async update(req: Request, res: Response) {
+
+    if (invalidBodyUpdateReview(req)) {
+      res.status(StatusCode.BAD_REQUEST).json(invalidBodyError(req.body));
+      return;
+    }
+
     const { id } = req.params;
     const { body } = req;
 

@@ -30,13 +30,19 @@ export function invalidIdError(id: string): InvalidIdError {
   };
 }
 
-export type InvalidAuthorError = {
-  invalidAuthorError: {
-    message: string;
-    author: string;
+export type CustomErrors = PromiseError | InvalidIdError;
+
+export type InvalidBodyError = {
+  InvalidBodyError: {
+      message: string;
+      body: unknown;
   };
 };
-
-
-
-export type CustomErrors = PromiseError | InvalidIdError;
+export function invalidBodyError(body: unknown): InvalidBodyError {
+  return {
+      InvalidBodyError: {
+          message: "Invalid body",
+          body: body,
+      },
+  };
+}

@@ -33,13 +33,20 @@ export const fakeBooksData: Books[] = [
   },
 ]
 
-export const updatedBook: Books = {
-    title: "Harry Potter e o Cálice de Fogo",
-    releaseDate: "2000",
+export const fakeBooksInvalidBody = 
+  {
+    title: "Harry Potter e a Pedra Filosofal",
+    releaseDate: "1997",
+  }
+
+
+export const updatedBook = {
     language: ['português'],
-    status: true,
     reviewId: new mongoose.Types.ObjectId(),
-    author: "J. K. Rowling",
+  }
+
+  export const updatedBookStatus = {
+    status: true,
   }
 
   export const getByAuthor: Books = {

@@ -63,7 +63,7 @@ export class BooksService {
     if (!isIdValid(id)) {
       return invalidIdError(id);
     }
-
+    
     try {
       const updateStatusBook = await this.booksRepository.updateStatus(id, book)
       return updateStatusBook

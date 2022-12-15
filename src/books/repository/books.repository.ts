@@ -10,7 +10,7 @@ export class BooksRepository {
       const book = await this.booksModel.find( {author})
       return book
     }
-    const books = await this.booksModel.find().populate('reviewId');
+    const books = await this.booksModel.find()
     return books;
   } 
 
@@ -50,6 +50,7 @@ export class BooksRepository {
       new: true,
     });
 
+    
     if (updatedStatusBook === null) {
       return {} as Books;
     }

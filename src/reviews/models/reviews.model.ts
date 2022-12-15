@@ -22,9 +22,11 @@ const reviewSchema = new Schema({
       min: 1,
       required: true,
     },
+  }, {
+    timestamps: {createdAt: true, updatedAt: false}
   });
   
-  export type Review = InferSchemaType<typeof reviewSchema>;
+  export type Review = InferSchemaType<typeof reviewSchema>; 
   
   
   export const ReviewsModel: Model<Review> = model("Review", reviewSchema);

@@ -37,11 +37,22 @@ describe("ReviewsRepository", () => {
     });
   });
   describe("update", () => {
+    it("should update a review new text", async () => {
+      jest.spyOn(fakeReviewsModel, "findById").mockResolvedValueOnce(updatedReviews);
+
+      const book = await reviewsRepository.update(fakeId, fakeReviewsData[0]);
+      expect(book).toEqual(updatedReviews);
+    });
     it("should update a review", async () => {
+      jest.spyOn(fakeReviewsModel, "findById").mockResolvedValueOnce(updatedReviews);
+      jest.spyOn(fakeReviewsModel, "findByIdAndUpdate").mockResolvedValueOnce(updatedReviews);
+
       const book = await reviewsRepository.update(fakeId, fakeReviewsData[0]);
       expect(book).toEqual(updatedReviews);
     });
     it("should return an empty object", async () => {
+      jest.spyOn(fakeReviewsModel, "findById").mockResolvedValueOnce(updatedReviews);
+
       jest.spyOn(fakeReviewsModel, "findByIdAndUpdate").mockResolvedValueOnce(null);
 
       const book = await reviewsRepository.update(fakeId, fakeReviewsData[0]);
