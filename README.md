@@ -199,4 +199,3 @@ Nem todo livro terá uma Resenha.
 
 - Na funcionalidade de Listar, deverá ser possível fazer uma consulta com Query Params
   por autor
- 
