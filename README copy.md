@@ -1,24 +1,29 @@
-<h1 align="center"> Books and Reviews API - Serverless Framework Node Express API </h1>
+<h1> Books and Reviews API - Serverless Framework Node Express API </h1>
 
 
 
 <p> Esse é o repositório para o back-end do projeto Books and Reviews. </p>
 <p> Foi criada uma API Rest com Node Express. </p>
-<br>
-<h3> Tecnologias utilizadas </h3>
-<br>
+
+<h2> Tecnologias utilizadas </h2>
   <ul>
     <li> Node.js </li>
     <li> Express </li>
     <li> Mongoose (mongoDB) </li>
   </ul>
 
-<h3> Estrutura do projeto </h3>
+<h2> Estrutura do projeto </h2>
 
 <p> A estrutura de pastas do projeto é explicada a seguir: </p>
 
 Nome	Descrição
-handler.js	Entrada da aplicação, contém as rotas e conexão ao banco de dados.
+
+<tr>
+  <td>handler.js</td>
+  <td>Entrada da aplicação, contém as rotas e conexão ao banco de dados.</td>
+</tr>
+
+	
 node_modules	Contém todas as dependências npm
 src	Contém os diretórios src/db, src/posts e src/utils
 src/db	Contém arquivo seeder.js, para realizar um processo de seeding inicial
