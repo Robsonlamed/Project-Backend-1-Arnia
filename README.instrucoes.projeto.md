@@ -53,8 +53,8 @@
       </td>
     </tr>
     <tr>
-      <td>____________________</td>
-      <td>____________________________________________________________________________________________________________________________</td>
+      <td>---------------------------</td>
+      <td>---------------------------------------------------------------------------------------------------------------------</td>
     </tr>
     <tr>
       <td><strong> **src/books ** </strong></td>
@@ -94,8 +94,8 @@
       books.body.validator.ts (para validar os body's de books). Acompanha arquivo de testes de bodyValidator.</td>
     </tr>
     <tr>
-      <td>____________________</td>
-      <td>____________________________________________________________________________________________________________________________</td>
+      <td>---------------------------</td>
+      <td>---------------------------------------------------------------------------------------------------------------------</td>
     </tr>
     <td> <strong>**src/reviews **</strong> </td>
       <td> Contém todo o domínio de reviews com seus respectivos:<br> controllers, models, repositories, services, factory, routes, __mocks__ e utils.</td>
@@ -134,8 +134,8 @@
         review.body.validator.ts (para validar os body's de reviews). Acompanha arquivo de testes de bodyValidator.</td>
     </tr>
     <tr>
-      <td>-------------------------------</td>
-      <td>------------------------------------------------------------------------------------------------------------------</td>
+      <td>---------------------------</td>
+      <td>---------------------------------------------------------------------------------------------------------------------</td>
     </tr>
     <tr>
       <td><strong> package.json</strong>	</td>
@@ -158,5 +158,95 @@
   </tbody>
 </table>
 
+<h2>Pré-requisitos</h2>
+<ul>
+  <li>É esperado que o Node.js esteja instalado.</li>
+  <li>Na raiz no projeto, crie um arquivo .env, adicione sua string de conexão do MongoDB à chave MONGO, como demonstrado a seguir:</li>
+</ul>
+<strong>MONGO=<sua-string-de-conexão></strong>
 
+<h3>Instalação</h3>
+<h4>Instale as dependências:</h4>
+<strong>npm install</strong>
+<h4>Rode o script de seed:</h4>
+<strong>npm run seed</strong>
+<h4>Rode o script para rodar localmente:</h4>
+<strong>npm run local</strong>
+<h3>Rodando os testes</h3>
+<h4>Para executar os testes, rode o script:</h4>
+<strong>npm test</strong>
+<h4>Para visualizar a cobertura de testes da aplicação, use o script:</h4>
+<strong>npm run coverage</strong>
+<h3>Quantidade de testes realizados e cobertura da aplicação:</h3>
 
+<h2>Como usar os endpoints</h2>
+
+<table border="1" >
+  <thead align="left">
+    <tr>
+      <th> Endpoint </th>
+      <th> Input </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <strong>GET /books</strong> </td>
+      <td> Não é necessário input, retornará todos os books </td>
+    </tr>
+    <tr>
+      <td> <strong>GET /books/:id	</strong> </td>
+      <td> Necessário indicar id válido nos parâmetros da rota, retorna o book com o id selecionado. </td>
+    </tr>
+    <tr>
+      <td> <strong>POST /books	</strong> </td>
+      <td> Necessário informar JSON válido<br>
+      exemplo: <br>
+        { <br>
+          title: "Harry Potter e o Prisioneiro de Askaban",
+          releaseDate: "1999",
+          language: ['português', 'inglês'],
+          status: true,
+          reviewId: new mongoose.Types.ObjectId(),
+          author: "J. K. Rowling", <br>
+          }<br> 
+          retornará a postagem criada.<br>
+          Observação: a chave "reviewId" não é obrigatória para criar um book. </td>
+    </tr>
+    <tr>
+      <td> <strong>PUT /books/:id	</strong> </td>
+      <td> Necessário indicar id válido nos parâmetros da rota e qual chave deseja alterar (language, reviewId). </td>
+    </tr>
+    <tr>
+      <td> <strong>PUT /books/:id/status	</strong> </td>
+      <td> Necessário indicar id válido nos parâmetros da rota e a chave (status). </td>
+    </tr>
+    <tr>
+      <td>---------------------------</td>
+      <td>---------------------------------------------------------------------------------------------------------------------</td>
+    </tr>
+    <tr>
+      <td> <strong>GET /reviews</strong> </td>
+      <td> Não é necessário input, retornará todas os reviews </td>
+    </tr>
+    <tr>
+      <td> <strong>GET /reviews/:id	</strong> </td>
+      <td> Necessário indicar id válido nos parâmetros da rota, retorna o post com o id selecionado. </td>
+    </tr>
+    <tr>
+      <td> <strong>POST /reviews	</strong> </td>
+      <td> Necessário informar JSON válido<br>
+      exemplo: <br>
+        { <br>
+          title: "review Harry Potter e a Pedra Filosofal",
+          textReview: ["Lorem ipsum dolor sit amet, consectetur adipis eiusmod tempor incididunt ut labore et dolore magna aliqua."],
+          updateDate: [new Date()],
+          score: 3,<br>
+        },<br> 
+          retornará a postagem criada.<br>
+    </tr>
+    <tr>
+      <td> <strong>PUT /reviews/:id	</strong> </td>
+      <td> Necessário indicar id válido nos parâmetros da rota e qual chave deseja alterar (textReview, updateDate). </td>
+    </tr>
+  </tbody>
+</table>
