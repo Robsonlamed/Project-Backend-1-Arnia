@@ -1,45 +1,38 @@
-import { afterAll, beforeAll, describe, it, expect } from "@jest/globals"
+import { faker } from "@faker-js/faker";
+import { afterAll, beforeAll, describe, it, expect } from "@jest/globals";
 import express from "express";
 import supertest from "supertest";
 import { reviewsRoutes } from "../reviews/routes/reviews.routes";
 import { connectMongo, mongoDisconnect } from "../db/mongo.connection";
 import { booksRoutes } from "../books/routes/books.routes";
 
-const app = express(); 
+const app = express();
 app.use(express.json());
-app.use("/reviews", reviewsRoutes)
-app.use("/books", booksRoutes)
+app.use("/reviews", reviewsRoutes);
+app.use("/books", booksRoutes);
 
 const testReviewsCreate = {
-      title: (function () {
-        return Math.random().toString(36).substring(7);
-      })(),
-      textReview: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      ],
-      updateDate: [new Date()],
-      score: 3,
+  title: faker.lorem.words(2),
+  textReview: [faker.lorem.paragraphs()],
+  updateDate: [new Date()],
+  score: 3,
 };
 
 const testReviewsUpdate = {
-  textReview: ["testando update"],
+  textReview: [faker.lorem.paragraph()],
   updateDate: [new Date()],
 };
 
 const testBooksCreate = {
-  title: function () {
-    return Math.random().toString(36).substring(7);
-  }(),
+  title: faker.lorem.words(2),
   releaseDate: new Date(),
-  language: ['portugues', 'ingles'],
+  language: ["portugues", "ingles"],
   status: true,
-  author: function () {
-    return Math.random().toString(36).substring(7);
-  }(),
+  author: faker.name.fullName(),
 };
 
 const testBooksUpdate = {
-  language: ['japones'],
+  language: ["japones"],
 };
 
 const testBooksUpdateStatus = {
@@ -50,16 +43,23 @@ beforeAll(() => {
   connectMongo(true);
 });
 
-afterAll(async() => {
+afterAll(async () => {
   await mongoDisconnect();
 });
 
 describe("Reviews", () => {
+  it("should create review", async () => {
+    const response = await supertest(app)
+      .post("/reviews")
+      .send(testReviewsCreate);
+    expect(response.status).toBe(201);
+  });
+
   it("should get all reviews", async () => {
     const response = await supertest(app).get("/reviews");
     expect(response.status).toBe(200);
   });
-  
+
   it("should get review by id", async () => {
     const getAll = await supertest(app).get("/reviews");
     const id = getAll.body[0]._id;
@@ -67,15 +67,14 @@ describe("Reviews", () => {
     expect(response.status).toBe(200);
   });
 
-  it("should create review", async () => {
-    const response = await supertest(app).post("/reviews").send(testReviewsCreate);
-    expect(response.status).toBe(201);
-  });
+  
 
   it("should update review", async () => {
     const getAll = await supertest(app).get("/reviews");
     const updateReview = getAll.body[getAll.body.length - 1];
-    const response = await supertest(app).put(`/reviews/${updateReview._id}`).send(testReviewsUpdate);
+    const response = await supertest(app)
+      .put(`/reviews/${updateReview._id}`)
+      .send(testReviewsUpdate);
     expect(response.status).toBe(200);
   });
 });
@@ -104,14 +103,18 @@ describe("Books", () => {
   it("should update books", async () => {
     const getAll = await supertest(app).get("/books");
     const updateReview = getAll.body[getAll.body.length - 1];
-    const response = await supertest(app).put(`/books/${updateReview._id}`).send(testBooksUpdate);
+    const response = await supertest(app)
+      .put(`/books/${updateReview._id}`)
+      .send(testBooksUpdate);
     expect(response.status).toBe(200);
   });
 
   it("should update status books no content", async () => {
     const getAll = await supertest(app).get("/books");
     const updateReview = getAll.body[getAll.body.length - 1];
-    const response = await supertest(app).put(`/books/${updateReview._id}/status`).send(testBooksUpdateStatus);
+    const response = await supertest(app)
+      .put(`/books/${updateReview._id}/status`)
+      .send(testBooksUpdateStatus);
     expect(response.status).toBe(200);
   });
 });

@@ -24,7 +24,7 @@ export type InvalidIdError = {
 export function invalidIdError(id: string): InvalidIdError {
   return {
     invalidIdError: {
-      message: "invalid id on request, please submit a ObjectId",
+      message: "Invalid id on request, please submit a ObjectId",
       id: id,
     },
   };
@@ -41,8 +41,8 @@ export type InvalidBodyError = {
 export function invalidBodyError(body: unknown): InvalidBodyError {
   return {
       InvalidBodyError: {
-          message: "Invalid body",
+          message: "Invalid body on request, please submit a valid body",
           body: body,
       },
   };
-}
+} 

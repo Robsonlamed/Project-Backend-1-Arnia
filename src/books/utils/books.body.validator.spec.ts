@@ -56,7 +56,7 @@ describe ("invalidBodyUpdateLanguageAndReviewIdBook", () => {
   })
 })
 
-const invalidBodyUpdateStatusBookTeste = {
+export const invalidBodyUpdateStatusBookTeste = {
   title: "Harry Potter e a Pedra Filosofal",
   releaseDate: "1997",
   language: ['português', 'inglês'],

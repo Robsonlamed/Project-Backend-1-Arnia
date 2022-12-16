@@ -1,5 +1,6 @@
 import { promiseError, invalidIdError, invalidBodyError } from "./error.handler";
 import { jest, describe, it, expect } from "@jest/globals";
+import { invalidBodyUpdateStatusBookTeste } from "../books/utils/books.body.validator.spec";
 
 describe("error.handler", () => {
   describe("promiseError", () => {
@@ -34,11 +35,29 @@ describe("error.handler", () => {
       const error = invalidIdError("invalidId");
       expect(error).toEqual({
         invalidIdError: {
-          message: "invalid id on request, please submit a ObjectId",
+          message: "Invalid id on request, please submit a ObjectId",
           id: "invalidId",
         },
       });
-    });
+    }); 
   });
-
+  describe("invalidBodyError", () => {
+    it("  should be defined", () => {
+      const error = invalidBodyError(invalidBodyUpdateStatusBookTeste);
+      expect(error).toBeDefined();
+    });
+    it("should return an object with a invalidBodyError property", () => {
+      const error = invalidBodyError(invalidBodyUpdateStatusBookTeste);
+      expect(error.InvalidBodyError).toBeDefined();
+    });
+    it("should return an object with a invalidBodyError property with a message property", () => {
+      const error = invalidBodyError(invalidBodyUpdateStatusBookTeste);
+      expect(error).toEqual({
+        InvalidBodyError: {
+          message: "Invalid body on request, please submit a valid body",
+          body: invalidBodyUpdateStatusBookTeste,
+      },
+      });
+    }); 
+  });
 });

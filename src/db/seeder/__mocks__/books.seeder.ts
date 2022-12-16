@@ -1,14 +1,12 @@
+import { faker } from '@faker-js/faker'
+
 export const bookFactory = (id: any) => {
     return {
-      title: function () {
-        return Math.random().toString(36).substring(7);
-      }(),
+      title: faker.lorem.words(3),
       releaseDate: new Date(),
       language: ['portugues', 'ingles'],
       status: true,
       reviewId: id,
-      author: function () {
-        return Math.random().toString(36).substring(7);
-      }()
+      author: faker.name.fullName()
     }
   }
