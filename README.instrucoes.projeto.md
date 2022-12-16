@@ -1,4 +1,4 @@
-<h1>Books and Reviews API - Serverless Framework Node Express API</h1>
+<h1>Books and Reviews API - Node Express API</h1>
 
 <p>Esse é o repositório para o back-end do projeto Books and Reviews.</p>
 <p>Foi criada uma API Rest com Node Express.</p>
