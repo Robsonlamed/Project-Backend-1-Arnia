@@ -2,17 +2,17 @@
 
 
 
-Esse é o repositório para o back-end do projeto Books and Reviews.
-Foi criada uma API Rest com Node Express.
+<p> Esse é o repositório para o back-end do projeto Books and Reviews. </p>
+<p> Foi criada uma API Rest com Node Express. </p>
 
-Tecnologias utilizadas
-  Node.js
-  Express
-  Mongoose (mongoDB)
+<h3> Tecnologias utilizadas </h3>
+- `Node.js` 
+- `Express` 
+- `Mongoose (mongoDB)`
 
-Estrutura do projeto
+<h3> Estrutura do projeto </h3>
 
-A estrutura de pastas do projeto é explicada a seguir:
+<p> A estrutura de pastas do projeto é explicada a seguir: </p>
 
 Nome	Descrição
 handler.js	Entrada da aplicação, contém as rotas e conexão ao banco de dados.
