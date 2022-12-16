@@ -178,7 +178,9 @@
 <h4>Para visualizar a cobertura de testes da aplicação, use o script:</h4>
 <strong>npm run coverage</strong>
 <h3>Quantidade de testes realizados e cobertura da aplicação:</h3>
-![cobertu do coverage](https://user-images.githubusercontent.com/107007341/208202280-ea5d36ba-26e5-4331-84b6-61dc6279541b.jpg)
+
+  ![cobertura do coverage](https://user-images.githubusercontent.com/107007341/208202432-a4dab340-6dac-456a-8508-1739d0e7c387.jpg)
+
 
 <h2>Como usar os endpoints</h2>
 
