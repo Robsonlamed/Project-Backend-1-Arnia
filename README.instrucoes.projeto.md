@@ -179,8 +179,7 @@
 <strong>npm run coverage</strong>
 <h3>Quantidade de testes realizados e cobertura da aplicação:</h3>
 
-  ![cobertura do coverage](https://user-images.githubusercontent.com/107007341/208202432-a4dab340-6dac-456a-8508-1739d0e7c387.jpg)
-
+  ![cobertura-do-coverage](https://user-images.githubusercontent.com/107007341/208202591-1f595855-1294-4c21-8d2a-e2f2671a9d82.jpg)
 
 <h2>Como usar os endpoints</h2>
 
