@@ -218,7 +218,7 @@ npm run coverage
       <td> Necessário informar JSON válido<br>
       exemplo: <br>
         { <br>
-          title: "Harry Potter e o Prisioneiro de Askaban",<br>
+          <p>title: "Harry Potter e o Prisioneiro de Askaban",<br><p>
           releaseDate: "1999",<br>
           language: ['português', 'inglês'],
           status: true,<br>
