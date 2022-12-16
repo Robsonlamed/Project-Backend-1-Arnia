@@ -66,23 +66,28 @@
     </tr>
     <tr>
       <td> <strong>src/books/controllers </strong></td>
-      <td> Contém o controller de books com os métodos: getAll, getById, create, update e updateStatus. Acompanha arquivo de testes de controller.</td>
+      <td> Contém o controller de books com os métodos: getAll, getById, create, update e updateStatus.<br>
+         Acompanha arquivo de testes de controller.</td>
     </tr>
     <tr>
       <td> <strong>src/books/factories </strong></td>
-      <td> Contém função booksFactory, responsável por instanciar repository, service e controller. Acompanha arquivo de testes de factory.</td>
+      <td> Contém função booksFactory, responsável por instanciar repository, service e controller.<br>
+         Acompanha arquivo de testes de factory.</td>
     </tr>
     <tr>
       <td> <strong>src/books/models </strong></td>
-      <td> Contém o Schema para a model de books e cria Model da aplicação. Acompanha arquivo de testes de models.</td>
+      <td> Contém o Schema para a model de books e cria Model da aplicação.<br>
+         Acompanha arquivo de testes de models.</td>
     </tr>
     <tr>
       <td> <strong>src/books/repository</strong> </td>
-      <td> Contém classe BooksRepository: repositório com os métodos getAll, getById, create, update e updateStatus. Acompanha arquivo de testes de repository.</td>
+      <td> Contém classe BooksRepository: repositório com os métodos getAll, getById, create, update e updateStatus.<br>
+         Acompanha arquivo de testes de repository.</td>
     </tr>
     <tr>
       <td> <strong>src/books/service</strong></td>
-      <td> Contém classe BooksService: serviço com os métodos getAll, getById, create, update e updateStatus.Acompanha arquivo de testes de service.</td>
+      <td> Contém classe BooksService: serviço com os métodos getAll, getById, create, update e updateStatus.<br>
+        Acompanha arquivo de testes de service.</td>
     </tr>
     <tr>
       <td> <strong>src/books/routes</strong>	</td>
@@ -91,7 +96,8 @@
     <tr>
       <td><strong> src/books/utils	</strong></td>
       <td> Contém 1 arquivo: <br>
-      books.body.validator.ts (para validar os body's de books). Acompanha arquivo de testes de bodyValidator.</td>
+      books.body.validator.ts (para validar os body's de books). <br>
+       Acompanha arquivo de testes de bodyValidator.</td>
     </tr>
     <tr>
       <td>---------------------------</td>
@@ -106,23 +112,28 @@
     </tr>
     <tr>
       <td><strong> src/reviews/controllers</strong> </td>
-      <td> Contém o controller de reviews com os métodos: getAll, getById, create e update. Acompanha arquivo de testes de controller.</td>
+      <td> Contém o controller de reviews com os métodos: getAll, getById, create e update.<br>
+         Acompanha arquivo de testes de controller.</td>
     </tr>
     <tr>
       <td> <strong>src/reviews/factories </strong></td>
-      <td> Contém função reviewsFactory, responsável por instanciar repository, service e controller. Acompanha arquivo de testes de factory.</td>
+      <td> Contém função reviewsFactory, responsável por instanciar repository, service e controller.<br>
+         Acompanha arquivo de testes de factory.</td>
     </tr>
     <tr>
       <td> <strong>src/reviews/models </strong></td>
-      <td> Contém o Schema para a model de reviews e cria Model da aplicação. Acompanha arquivo de testes de models.</td>
+      <td> Contém o Schema para a model de reviews e cria Model da aplicação.<br>
+         Acompanha arquivo de testes de models.</td>
     </tr>
     <tr>
       <td><strong> src/reviews/repository</strong> </td>
-      <td> Contém classe ReviewsRepository: repositório com os métodos getAll, getById, create e update. Acompanha arquivo de testes de repository.</td>
+      <td> Contém classe ReviewsRepository: repositório com os métodos getAll, getById, create e update.<br>
+         Acompanha arquivo de testes de repository.</td>
     </tr>
     <tr>
       <td><strong> src/reviews/service</strong>	</td>
-      <td> Contém classe ReviewsService: serviço com os métodos getAll, getById, creat e update. Acompanha arquivo de testes de service.</td>
+      <td> Contém classe ReviewsService: serviço com os métodos getAll, getById, creat e update.<br>
+         Acompanha arquivo de testes de service.</td>
     </tr>
     <tr>
       <td><strong> src/reviews/routes	</strong></td>
@@ -131,7 +142,8 @@
     <tr>
       <td><strong> src/reviews/utils</strong>	</td>
       <td> Contém 1 arquivo: <br>
-        review.body.validator.ts (para validar os body's de reviews). Acompanha arquivo de testes de bodyValidator.</td>
+        review.body.validator.ts (para validar os body's de reviews).<br>
+         Acompanha arquivo de testes de bodyValidator.</td>
     </tr>
     <tr>
       <td>---------------------------</td>
@@ -145,8 +157,10 @@
       <td><strong> src/utils</strong>	</td>
       <td> Contém 3 arquivos: <br>
         1. error.handler.ts (para validar error's). Acompanha arquivo de teste.  <br>
-        2. status.code.ts (para concentrar os status e mensagens da aplicação). Acompanha arquivo de teste. <br>
-        3. id.validator.ts (para validar ID). Acompanha arquivo de teste. <br>
+        2. status.code.ts (para concentrar os status e mensagens da aplicação).<br>
+         Acompanha arquivo de teste. <br>
+        3. id.validator.ts (para validar ID).<br>
+        Acompanha arquivo de teste.
       </td>
     </tr> 
     <tr>
@@ -163,21 +177,21 @@
   <li>É esperado que o Node.js esteja instalado.</li>
   <li>Na raiz no projeto, crie um arquivo .env, adicione sua string de conexão do MongoDB à chave MONGO, como demonstrado a seguir:</li>
 </ul>
-<strong>MONGO=<sua-string-de-conexão></strong>
+<strong>MONGO =</strong>" <sua-string-de-conexão>"
 
 <h3>Instalação</h3>
 <h4>Instale as dependências:</h4>
-<strong>npm install</strong>
+npm install
 <h4>Rode o script de seed:</h4>
-<strong>npm run seed</strong>
+npm run seed
 <h4>Rode o script para rodar localmente:</h4>
-<strong>npm run local</strong>
+npm run dev
 <h3>Rodando os testes</h3>
 <h4>Para executar os testes, rode o script:</h4>
-<strong>npm test</strong>
+npm test
 <h4>Para visualizar a cobertura de testes da aplicação, use o script:</h4>
-<strong>npm run coverage</strong>
-<h3>Quantidade de testes realizados e cobertura da aplicação:</h3>
+npm run coverage
+<h2>Quantidade de testes realizados e cobertura da aplicação:</h2>
 
 <h2>Como usar os endpoints</h2>
 
@@ -202,11 +216,11 @@
       <td> Necessário informar JSON válido<br>
       exemplo: <br>
         { <br>
-          title: "Harry Potter e o Prisioneiro de Askaban",
-          releaseDate: "1999",
+          title: "Harry Potter e o Prisioneiro de Askaban",<br>
+          releaseDate: "1999",<br>
           language: ['português', 'inglês'],
-          status: true,
-          reviewId: new mongoose.Types.ObjectId(),
+          status: true,<br>
+          reviewId: new mongoose.Types.ObjectId(),<br>
           author: "J. K. Rowling", <br>
           }<br> 
           retornará a postagem criada.<br>
@@ -214,15 +228,15 @@
     </tr>
     <tr>
       <td> <strong>PUT /books/:id	</strong> </td>
-      <td> Necessário indicar id válido nos parâmetros da rota e qual chave deseja alterar (language, reviewId). </td>
+      <td> Necessário indicar id válido nos parâmetros da rota e qual chave deseja alterar<br> ( language, reviewId ). </td>
     </tr>
     <tr>
       <td> <strong>PUT /books/:id/status	</strong> </td>
       <td> Necessário indicar id válido nos parâmetros da rota e a chave (status). </td>
     </tr>
     <tr>
-      <td>---------------------------</td>
-      <td>---------------------------------------------------------------------------------------------------------------------</td>
+      <td>-----------------------</td>
+      <td>-------------------------------------------------------------------------------------------------------------------------</td>
     </tr>
     <tr>
       <td> <strong>GET /reviews</strong> </td>
@@ -237,16 +251,16 @@
       <td> Necessário informar JSON válido<br>
       exemplo: <br>
         { <br>
-          title: "review Harry Potter e a Pedra Filosofal",
-          textReview: ["Lorem ipsum dolor sit amet, consectetur adipis eiusmod tempor incididunt ut labore et dolore magna aliqua."],
-          updateDate: [new Date()],
+          title: "review Harry Potter e a Pedra Filosofal",<br>
+          textReview: ["Lorem ipsum dolor sit amet, consectetur adipis eiusmod tempor incididunt ut labore."],<br>
+          updateDate: [new Date()],<br>
           score: 3,<br>
         },<br> 
           retornará a postagem criada.<br>
     </tr>
     <tr>
       <td> <strong>PUT /reviews/:id	</strong> </td>
-      <td> Necessário indicar id válido nos parâmetros da rota e qual chave deseja alterar (textReview, updateDate). </td>
+      <td> Necessário indicar id válido nos parâmetros da rota e qual chave deseja alterar ( textReview, updateDate ). </td>
     </tr>
   </tbody>
 </table>
