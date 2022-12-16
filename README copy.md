@@ -4,11 +4,14 @@
 
 <p> Esse é o repositório para o back-end do projeto Books and Reviews. </p>
 <p> Foi criada uma API Rest com Node Express. </p>
-
+<br>
 <h3> Tecnologias utilizadas </h3>
-- `Node.js` 
-- `Express` 
-- `Mongoose (mongoDB)`
+<br>
+  <ul>
+    <li> Node.js </li>
+    <li> Express </li>
+    <li> Mongoose (mongoDB) </li>
+  </ul>
 
 <h3> Estrutura do projeto </h3>
 
