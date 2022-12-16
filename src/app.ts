@@ -1,5 +1,3 @@
-import { config } from 'dotenv'
-config()
 import express from 'express' 
 import { booksRoutes } from './books/routes/books.routes'
 import { connectMongo } from './db/mongo.connection'
