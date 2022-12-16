@@ -193,6 +193,8 @@ npm test
 npm run coverage
 <h2>Quantidade de testes realizados e cobertura da aplicação:</h2>
 
+  ![cobertura-do-coverage](https://user-images.githubusercontent.com/107007341/208202591-1f595855-1294-4c21-8d2a-e2f2671a9d82.jpg)
+
 <h2>Como usar os endpoints</h2>
 
 <table border="1" >
